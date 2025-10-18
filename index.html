@@ -418,51 +418,47 @@
             padding: 60px 0;
         }
         
-        .effectiveness-data {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+        .unified-results {
             margin: 40px 0;
         }
         
-        .effect-stat {
-            text-align: center;
-            padding: 30px 20px;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        .main-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
         }
         
-        .stat-number {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        .stat-highlight {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .big-number {
+            display: block;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
             font-weight: 800;
             color: #1a73e8;
             line-height: 1;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
-        .stat-label {
-            font-size: 1.2rem;
-            font-weight: 700;
+        .stat-desc {
+            font-size: 1.1rem;
+            font-weight: 600;
             color: #202124;
-            margin-bottom: 10px;
         }
         
-        .effect-stat p {
-            font-size: 1rem;
-            color: #5f6368;
-            line-height: 1.5;
-        }
-        
-        .benefit-list {
+        .benefit-summary {
             margin: 50px 0;
-            padding: 30px 20px;
+            padding: 40px 20px;
             background: #fff;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .benefit-list h3 {
+        .benefit-summary h3 {
             font-size: 1.5rem;
             color: #1a73e8;
             text-align: center;
@@ -470,45 +466,20 @@
             font-weight: 700;
         }
         
-        .benefit-categories {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         
-        .benefit-category {
+        .benefit-item {
             padding: 20px;
-            border-left: 4px solid #ff4081;
             background: #f8f9fa;
-        }
-        
-        .benefit-category h4 {
-            font-size: 1.2rem;
-            color: #1a73e8;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
             font-weight: 600;
-        }
-        
-        .benefit-category ul {
-            list-style: none;
-        }
-        
-        .benefit-category li {
-            padding: 8px 0;
-            padding-left: 20px;
-            position: relative;
-            font-size: 1rem;
-            line-height: 1.5;
             color: #202124;
-        }
-        
-        .benefit-category li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4caf50;
-            font-weight: bold;
-            font-size: 1.2rem;
+            border-left: 4px solid #ff4081;
         }
         
         .why-effective {
@@ -762,11 +733,21 @@
         
         /* 動画セクション */
         .video-section {
-            margin: 40px 0;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            margin: 60px 0;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 60px 0;
+        }
+        
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .video-item {
@@ -774,26 +755,26 @@
         }
         
         .video-item h4 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: #ffeb3b;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-weight: 700;
         }
         
         .treatment-video {
             width: 100%;
-            max-width: 600px;
+            max-width: 1000px;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
+            border-radius: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
         }
         
         .video-item p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.6;
-            opacity: 0.95;
-            max-width: 500px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
             margin: 0 auto;
         }
         
@@ -962,7 +943,7 @@
 <body>
     <!-- 緊急性バナー -->
     <div class="urgency-banner">
-        今月限定：深層筋集中整体 初回75%OFF（2,000円）
+        今月限定：深層筋集中整体 初回62%OFF（2,000円）
     </div>
 
     <!-- ヒーローセクション -->
@@ -1047,66 +1028,45 @@
         <div class="section">
             <h2 class="section-title">深層筋集中整体の効果</h2>
             
-            <div class="effectiveness-data">
-                <div class="effect-stat">
-                    <div class="stat-number">92.7%</div>
-                    <div class="stat-label">改善率</div>
-                    <p>10人中9人以上が効果を実感</p>
+            <div class="unified-results">
+                <div class="main-stats">
+                    <div class="stat-highlight">
+                        <span class="big-number">92.7%</span>
+                        <span class="stat-desc">改善率</span>
+                    </div>
+                    <div class="stat-highlight">
+                        <span class="big-number">600種類</span>
+                        <span class="stat-desc">深層筋へアプローチ</span>
+                    </div>
+                    <div class="stat-highlight">
+                        <span class="big-number">7-10倍</span>
+                        <span class="stat-desc">効果持続性</span>
+                    </div>
                 </div>
                 
-                <div class="effect-stat">
-                    <div class="stat-number">7-10倍</div>
-                    <div class="stat-label">持続性</div>
-                    <p>表層マッサージより長持ち</p>
-                </div>
-                
-                <div class="effect-stat">
-                    <div class="stat-number">600種類</div>
-                    <div class="stat-label">深層筋へアプローチ</div>
-                    <p>体の92%を占める筋肉をケア</p>
-                </div>
-            </div>
-            
-            <div class="benefit-list">
-                <h3>こんな変化を実感できます</h3>
-                <div class="benefit-categories">
-                    <div class="benefit-category">
-                        <h4>痛みの根本改善</h4>
-                        <ul>
-                            <li>何年も続いた慢性痛が減少</li>
-                            <li>頭痛薬が不要になった</li>
-                            <li>朝起きた時の体の重さが減った</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="benefit-category">
-                        <h4>姿勢・可動域の改善</h4>
-                        <ul>
-                            <li>肩が上がるようになった</li>
-                            <li>猫背が改善して若く見える</li>
-                            <li>首が回るようになった</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="benefit-category">
-                        <h4>生活の質向上</h4>
-                        <ul>
-                            <li>仕事中の疲労感が減った</li>
-                            <li>運動パフォーマンスが向上</li>
-                            <li>睡眠の質が改善した</li>
-                        </ul>
+                <div class="benefit-summary">
+                    <h3>期待できる効果</h3>
+                    <div class="benefit-grid">
+                        <div class="benefit-item">✨ 慢性痛の根本改善</div>
+                        <div class="benefit-item">🔄 姿勢の根本改善</div>
+                        <div class="benefit-item">⚡ 可動域の大幅向上</div>
+                        <div class="benefit-item">💪 筋力バランス調整</div>
+                        <div class="benefit-item">🛡️ 怪我の予防効果</div>
+                        <div class="benefit-item">😌 疲労回復力向上</div>
                     </div>
                 </div>
             </div>
             
             <div class="video-section">
-                <div class="video-item">
-                    <h4>深層筋アプローチの実際</h4>
-                    <video autoplay muted loop playsinline preload="metadata" class="treatment-video">
-                        <source src="video1.mov" type="video/quicktime">
-                        <source src="video1.mov" type="video/mp4">
-                    </video>
-                    <p>表面ではなく、深層部の筋肉に直接アプローチ。これが92.7%の改善率の秘密です。</p>
+                <div class="video-container">
+                    <div class="video-item">
+                        <h4>深層筋アプローチの実際</h4>
+                        <video autoplay muted loop playsinline preload="metadata" class="treatment-video">
+                            <source src="video1.mov" type="video/quicktime">
+                            <source src="video1.mov" type="video/mp4">
+                        </video>
+                        <p>表面ではなく、深層部の筋肉に直接アプローチ。これが92.7%の改善率の秘密です。</p>
+                    </div>
                 </div>
             </div>
             
@@ -1132,44 +1092,6 @@
         </div>
     </section>
 
-    <!-- 効果セクション -->
-    <section class="effects-section">
-        <div class="section">
-            <h2 class="section-title" style="color: #1a73e8;">深層筋集中整体の効果</h2>
-            <div class="effects-grid">
-                <div class="effect-item">
-                    <span class="effect-icon">✨</span>
-                    <h3>根本的な痛み改善</h3>
-                    <p>表面的な症状ではなく、痛みの根本原因から改善するため、長期的な効果が期待できます</p>
-                </div>
-                <div class="effect-item">
-                    <span class="effect-icon">🔄</span>
-                    <h3>姿勢の根本改善</h3>
-                    <p>深層筋の働きが正常化することで、自然と正しい姿勢を保てるようになります</p>
-                </div>
-                <div class="effect-item">
-                    <span class="effect-icon">⚡</span>
-                    <h3>可動域の大幅向上</h3>
-                    <p>関節の動きが劇的に改善し、日常動作やスポーツパフォーマンスが向上します</p>
-                </div>
-                <div class="effect-item">
-                    <span class="effect-icon">💪</span>
-                    <h3>筋力バランス調整</h3>
-                    <p>深層筋が活性化されることで、体全体の筋力バランスが整います</p>
-                </div>
-                <div class="effect-item">
-                    <span class="effect-icon">🛡️</span>
-                    <h3>怪我の予防効果</h3>
-                    <p>正しい筋肉の使い方ができるようになり、スポーツ障害や日常の怪我を予防</p>
-                </div>
-                <div class="effect-item">
-                    <span class="effect-icon">😌</span>
-                    <h3>疲労回復力向上</h3>
-                    <p>血液循環が改善され、疲労物質の排出が促進されて回復力がアップします</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- 実績データセクション -->
     <section class="results-section">
@@ -1223,13 +1145,15 @@
             </div>
             
             <div class="video-section">
-                <div class="video-item">
-                    <h4>専門技術による施術風景</h4>
-                    <video autoplay muted loop playsinline preload="metadata" class="treatment-video">
-                        <source src="video2.mov" type="video/quicktime">
-                        <source src="video2.mov" type="video/mp4">
-                    </video>
-                    <p>10年以上の経験を持つ国家資格者が、あなたの痛みの根本原因を的確に特定します。</p>
+                <div class="video-container">
+                    <div class="video-item">
+                        <h4>専門技術による施術風景</h4>
+                        <video autoplay muted loop playsinline preload="metadata" class="treatment-video">
+                            <source src="video2.mov" type="video/quicktime">
+                            <source src="video2.mov" type="video/mp4">
+                        </video>
+                        <p>10年以上の経験を持つ国家資格者が、あなたの痛みの根本原因を的確に特定します。</p>
+                    </div>
                 </div>
             </div>
             
@@ -1276,9 +1200,9 @@
                 <div style="font-size: 1.5rem; margin-bottom: 20px;">深層筋集中整体</div>
                 <div style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">所要時間：初回約45分（詳細な検査・施術・アフターケア含む）</div>
                 
-                <div class="original-price">通常料金 8,000円</div>
+                <div class="original-price">通常料金 5,300円</div>
                 <div class="current-price">初回限定 2,000円</div>
-                <div class="discount-badge">75% OFF</div>
+                <div class="discount-badge">62% OFF</div>
                 
                 <div style="margin: 40px 0; font-size: 1.1rem; line-height: 1.6;">
                     ✅ 詳細な姿勢分析<br>
@@ -1289,7 +1213,7 @@
                 </div>
                 
                 <a href="https://lin.ee/uqCRkRL" target="_blank" class="line-cta-special">
-                    初回75%OFF（2,000円）をLINEで予約
+                    初回62%OFF（2,000円）をLINEで予約
                 </a>
             </div>
         </div>
@@ -1305,14 +1229,16 @@
         <div class="section">
             <h2 class="section-title" style="color: #1a73e8;">アクセス・店舗情報</h2>
             
-            <div class="video-section" style="background: rgba(26, 115, 232, 0.1); border: 2px solid rgba(26, 115, 232, 0.3);">
-                <div class="video-item">
-                    <h4 style="color: #1a73e8;">院内の雰囲気と施術環境</h4>
-                    <video autoplay muted loop playsinline preload="metadata" class="treatment-video">
-                        <source src="video3.mov" type="video/quicktime">
-                        <source src="video3.mov" type="video/mp4">
-                    </video>
-                    <p style="color: #202124;">完全個室でリラックスして施術を受けられます。清潔で落ち着いた空間で、安心してお任せください。</p>
+            <div class="video-section" style="background: linear-gradient(135deg, rgba(26, 115, 232, 0.9) 0%, rgba(26, 115, 232, 1) 100%);">
+                <div class="video-container">
+                    <div class="video-item">
+                        <h4>院内の雰囲気と施術環境</h4>
+                        <video autoplay muted loop playsinline preload="metadata" class="treatment-video">
+                            <source src="video3.mov" type="video/quicktime">
+                            <source src="video3.mov" type="video/mp4">
+                        </video>
+                        <p>完全個室でリラックスして施術を受けられます。清潔で落ち着いた空間で、安心してお任せください。</p>
+                    </div>
                 </div>
             </div>
             
