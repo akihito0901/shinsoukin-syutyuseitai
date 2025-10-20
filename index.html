@@ -784,6 +784,143 @@
             51%, 100% { opacity: 0.7; }
         }
         
+        @keyframes urgentBlink {
+            0%, 50% { 
+                opacity: 1; 
+                background: #ea4335;
+                transform: scale(1);
+            }
+            51%, 100% { 
+                opacity: 0.8; 
+                background: #ff6b6b;
+                transform: scale(1.02);
+            }
+        }
+        
+        .animated-cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00B900, #00D400, #00FF00, #00D400, #00B900);
+            background-size: 400% 400%;
+            color: #fff;
+            padding: 25px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(0, 185, 0, 0.4),
+                0 0 40px rgba(0, 255, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            animation: ctaGlow 2s ease-in-out infinite, gradientShift 3s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .animated-cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(0, 185, 0, 0.6),
+                0 0 60px rgba(0, 255, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            border-color: #ffeb3b;
+        }
+        
+        .animated-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+        
+        .animated-cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .animated-cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: ripple 2s ease-in-out infinite;
+        }
+        
+        .cta-text {
+            position: relative;
+            z-index: 2;
+            margin-right: 10px;
+        }
+        
+        .cta-icon {
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            animation: bounce 1s ease-in-out infinite;
+        }
+        
+        @keyframes ctaGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 10px 30px rgba(0, 185, 0, 0.4),
+                    0 0 40px rgba(0, 255, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 15px 40px rgba(0, 185, 0, 0.6),
+                    0 0 60px rgba(0, 255, 0, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+        }
+        
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-5px);
+            }
+            60% {
+                transform: translateY(-3px);
+            }
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0.5) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1) rotate(180deg);
+                opacity: 0.2;
+            }
+            100% {
+                transform: scale(1.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
         /* アクセス情報 */
         .access-section {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
@@ -887,8 +1024,8 @@
     </section>
 
     <!-- 緊急性アラート（ヒーロー後） -->
-    <div style="background: #ea4335; color: #fff; padding: 20px; text-align: center; font-weight: 700; font-size: 1.1rem; margin: 0; box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3);">
-        ⚠️ 今月の残り枠：あと2名様のみ ⚠️
+    <div style="background: #ea4335; color: #fff; padding: 20px; text-align: center; font-weight: 700; font-size: 1.1rem; margin: 0; box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3); animation: urgentBlink 1.5s infinite;">
+        ⚠️ 今月の残り枠：あと7名様のみ ⚠️
     </div>
 
     <!-- メインメッセージセクション -->
@@ -902,8 +1039,9 @@
                     体の92%を占める深層筋600種類に直接アプローチ<br>
                     <span style="color: #1a73e8; font-weight: 600;">改善率92.7% | 10人中9人が効果実感</span>
                 </div>
-                <a href="https://lin.ee/uqCRkRL" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #00B900 0%, #00D400 100%); color: #fff; padding: 20px 40px; border-radius: 8px; text-decoration: none; font-size: 1.2rem; font-weight: 700; box-shadow: 0 8px 25px rgba(0, 185, 0, 0.4); transition: all 0.3s ease;">
-                    LINEで無料相談
+                <a href="https://lin.ee/uqCRkRL" target="_blank" class="animated-cta-button">
+                    <span class="cta-text">LINEで無料相談</span>
+                    <span class="cta-icon">📱</span>
                 </a>
             </div>
         </div>
@@ -1078,16 +1216,17 @@
                 <div class="current-price">初回 2,000円</div>
                 <div class="discount-badge">62% OFF</div>
                 
-                <a href="https://lin.ee/uqCRkRL" target="_blank" class="line-cta-special">
-                    LINEで予約する
+                <a href="https://lin.ee/uqCRkRL" target="_blank" class="animated-cta-button">
+                    <span class="cta-text">LINEで予約する</span>
+                    <span class="cta-icon">📱</span>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- 緊急性バナー2 -->
-    <div class="urgency-banner">
-        月間限定5名様のみ - 残り2名様
+    <div style="background: #ea4335; color: #fff; padding: 15px 20px; text-align: center; font-weight: 700; font-size: 1rem; margin: 0; animation: urgentBlink 1.5s infinite;">
+        月間限定10名様のみ - 残り7名様
     </div>
 
     <!-- アクセス情報 -->
@@ -1147,7 +1286,7 @@
             <div class="footer-links">
                 <a href="https://sakuranamiki1.com/" target="_blank" class="footer-link">公式HP</a>
                 <a href="https://www.instagram.com/uevo.sakura/" target="_blank" class="footer-link" style="background: linear-gradient(135deg, #E4405F 0%, #C13584 50%, #833AB4 100%);">Instagram</a>
-                <a href="https://lin.ee/uqCRkRL" target="_blank" class="footer-link" style="background: linear-gradient(135deg, #00C300 0%, #00B900 100%);">公式LINE</a>
+                <a href="https://lin.ee/uqCRkRL" target="_blank" class="footer-link" style="background: linear-gradient(45deg, #00B900, #00D400, #00FF00, #00D400, #00B900); background-size: 400% 400%; animation: gradientShift 3s ease-in-out infinite; box-shadow: 0 4px 15px rgba(0, 195, 0, 0.4);">公式LINE 📱</a>
                 <a href="https://www.tiktok.com/@bubuniversity" target="_blank" class="footer-link" style="background: linear-gradient(135deg, #000000 0%, #333333 100%);">TikTok</a>
             </div>
             <p style="margin-top: 40px; opacity: 0.7;">© 2025 桜並木駅前の整骨院. All rights reserved.</p>
