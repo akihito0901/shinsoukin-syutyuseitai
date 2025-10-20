@@ -1,0 +1,12 @@
+{
+  "name": "deep-muscle-lp",
+  "version": "1.0.0",
+  "description": "深層筋集中整体のランディングページ",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": ["landing-page", "整体", "深層筋"],
+  "author": "",
+  "license": "MIT"
+}
