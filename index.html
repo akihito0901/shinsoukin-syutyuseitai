@@ -764,7 +764,7 @@
         }
         
         .current-price {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 20px;
@@ -822,10 +822,10 @@
             background: linear-gradient(45deg, #00B900, #00D400, #00FF00, #00D400, #00B900);
             background-size: 400% 400%;
             color: #fff;
-            padding: 25px 50px;
+            padding: clamp(15px, 3vw, 25px) clamp(30px, 6vw, 50px);
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             font-weight: 700;
             position: relative;
             overflow: hidden;
@@ -837,6 +837,7 @@
             animation: ctaGlow 2s ease-in-out infinite, gradientShift 3s ease-in-out infinite;
             border: 3px solid rgba(255, 255, 255, 0.9);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
         }
         
         .animated-cta-button:hover {
@@ -1151,7 +1152,7 @@
                 </div>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; justify-content: center;">
                 
                 <!-- 口コミ1 K.Y. -->
                 <div style="background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border: 1px solid #e8eaed;">
@@ -1367,7 +1368,7 @@
 
     <!-- 緊急性バナー2 -->
     <div style="background: #ea4335; color: #fff; padding: 15px 20px; text-align: center; font-weight: 700; font-size: 1rem; margin: 0; animation: urgentBlink 1.5s infinite;">
-        月間限定10名様のみ - 残り7名様
+        今月の残り枠 - 残り7名様
     </div>
 
     <!-- アクセス情報 -->
