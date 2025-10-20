@@ -461,42 +461,46 @@
         
         /* 効果セクション */
         .effects-section {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
             padding: 80px 0;
+            color: #ffffff;
+            overflow-x: hidden;
         }
         
         .effects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin: 60px 0;
+            max-width: 100%;
         }
         
         .effect-item {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
         
         .effect-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
         }
         
         .effect-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             display: block;
-            color: #1a73e8;
+            color: #ffffff;
         }
         
         .effect-item h3 {
-            color: #1a73e8;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         
@@ -716,10 +720,13 @@
         /* 料金セクション */
         .pricing-section {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            padding: 100px 0;
+            padding: 80px 20px;
             color: #fff;
             text-align: center;
             position: relative;
+            overflow-x: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
         }
         
         .pricing-section::before {
@@ -732,46 +739,53 @@
             background: radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
         }
         
-        .pricing-card {
+        .pricing-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .pricing-info {
             background: rgba(255, 255, 255, 0.1);
-            padding: 60px 40px;
-            border-radius: 20px;
-            max-width: 600px;
-            margin: 60px auto;
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 40px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .original-price {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-decoration: line-through;
-            opacity: 0.7;
-            margin-bottom: 10px;
+            opacity: 0.8;
+            margin-bottom: 15px;
         }
         
         .current-price {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
         
         .discount-badge {
             display: inline-block;
             background: linear-gradient(135deg, #ff4081 0%, #e91e63 100%);
             color: #fff;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 25px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin: 20px 0;
-            transform: rotate(-5deg);
-            animation: shake 2s infinite;
+            margin: 15px 0;
+            animation: pulse 2s infinite;
         }
         
-        @keyframes shake {
-            0%, 100% { transform: rotate(-5deg) scale(1); }
-            50% { transform: rotate(-5deg) scale(1.1); }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         /* 緊急性セクション */
@@ -1039,7 +1053,7 @@
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <h1 style="font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; text-align: center; margin-bottom: 40px; color: #1a73e8; line-height: 1.3;">【深層筋集中整体】</h1>
             
-            <img src="section-image.jpg" alt="深層筋集中整体の効果" style="width: 100%; max-width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 40px; object-fit: cover; height: 400px; display: block;">
+            <img src="section-image.jpg" alt="深層筋集中整体の効果" style="width: 100%; max-width: 800px; margin: 0 auto 40px auto; object-fit: cover; height: 400px; display: block;">
             
             <div style="text-align: center; margin: 40px 0;">
                 <div style="font-size: 1.3rem; color: #ea4335; font-weight: 700; margin-bottom: 30px;">なぜ痛みが治らない？<br>答え：深層筋にアプローチしていないから</div>
@@ -1047,7 +1061,7 @@
                     改善率92.7% | 10人中9人が効果実感
                 </div>
                 <a href="https://lin.ee/uqCRkRL" target="_blank" class="animated-cta-button">
-                    <span class="cta-text">LINEで無料相談</span>
+                    <span class="cta-text">LINE予約で特典ゲット</span>
                     <span class="cta-icon">📱</span>
                 </a>
             </div>
@@ -1059,7 +1073,7 @@
         <div class="section">
             <h2 style="font-size: clamp(1.5rem, 5vw, 2.2rem); text-align: center; margin-bottom: 40px; color: rgba(255, 255, 255, 0.95); font-weight: 700; line-height: 1.3;">なぜ普通のマッサージでは治らないのか？</h2>
             
-            <img src="massage-problem.jpg" alt="マッサージで治らない理由" style="width: 100%; max-width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 40px; object-fit: cover; height: 400px;">
+            <img src="massage-problem.jpg" alt="マッサージで治らない理由" style="width: 100%; max-width: 800px; margin: 0 auto 40px auto; object-fit: cover; height: 400px; display: block;">
             
             <div style="text-align: center; margin: 40px 0; padding: 30px 20px; background: rgba(255, 255, 255, 0.1); border-radius: 15px; backdrop-filter: blur(10px);">
                 <div style="font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: 700; color: #ff4081; line-height: 1.4; margin-bottom: 20px;">
@@ -1078,7 +1092,7 @@
         <div class="section">
             <h2 style="font-size: clamp(1.5rem, 5vw, 2.2rem); text-align: center; margin-bottom: 40px; color: #1a73e8; font-weight: 700; line-height: 1.3;">深層筋集中整体の効果</h2>
             
-            <img src="effects-image.jpg" alt="深層筋集中整体の効果" style="width: 100%; max-width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 40px; object-fit: cover; height: 400px;">
+            <img src="effects-image.jpg" alt="深層筋集中整体の効果" style="width: 100%; max-width: 800px; margin: 0 auto 40px auto; object-fit: cover; height: 400px; display: block;">
             
             <div style="background: rgba(255, 255, 255, 0.9); padding: 40px 20px; border-radius: 15px; box-shadow: 0 5px 20px rgba(79, 172, 254, 0.2); margin: 40px 0;">
                 <h3 style="font-size: 1.5rem; color: #1a73e8; text-align: center; margin-bottom: 30px; font-weight: 700;">期待できる効果</h3>
@@ -1100,17 +1114,6 @@
         </div>
     </section>
             
-    <!-- 動画セクション -->
-    <section style="background: #f8f9fa; padding: 60px 0; overflow-x: hidden;">
-        <div style="margin: 60px 0; text-align: center;">
-            <h4 style="font-size: 1.5rem; color: #202124; margin-bottom: 30px; font-weight: 700;">深層筋アプローチの実際</h4>
-            <video autoplay muted loop playsinline preload="metadata" style="width: 100%; max-width: 100vw; margin-left: calc(-50vw + 50%); display: block; margin-bottom: 20px;">
-                    <source src="video1.mov" type="video/quicktime">
-                    <source src="video1.mov" type="video/mp4">
-                </video>
-                <p style="font-size: 1.1rem; color: #202124; max-width: 600px; margin: 0 auto;">深層部の筋肉に直接アプローチ</p>
-        </div>
-    </section>
             </div>
             
             <div class="why-effective">
@@ -1344,18 +1347,20 @@
     <section class="pricing-section" id="pricing">
         <div class="section">
             <h2 class="section-title">施術料金</h2>
-            <div class="pricing-card">
-                <div style="font-size: 1.5rem; margin-bottom: 20px;">深層筋集中整体</div>
-                <div style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">約45分</div>
-                
-                <div class="original-price">通常 5,300円</div>
-                <div class="current-price">初回 2,000円</div>
-                <div class="discount-badge">62% OFF</div>
-                
-                <a href="https://lin.ee/uqCRkRL" target="_blank" class="animated-cta-button">
-                    <span class="cta-text">LINEで予約する</span>
-                    <span class="cta-icon">📱</span>
-                </a>
+            <div class="pricing-content">
+                <div class="pricing-info">
+                    <div style="font-size: 1.5rem; margin-bottom: 20px;">深層筋集中整体</div>
+                    <div style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">約45分</div>
+                    
+                    <div class="original-price">通常 5,300円</div>
+                    <div class="current-price">初回 2,000円</div>
+                    <div class="discount-badge">62% OFF</div>
+                    
+                    <a href="https://lin.ee/uqCRkRL" target="_blank" class="animated-cta-button">
+                        <span class="cta-text">LINE予約で特典ゲット</span>
+                        <span class="cta-icon">📱</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
